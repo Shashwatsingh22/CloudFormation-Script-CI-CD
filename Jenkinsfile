@@ -7,8 +7,8 @@ pipeline {
         
         stage('cloning the repo') {
             steps {
-                
                 shell("echo 'clone the repo'")
+                echo ${BRANCH_NAME}
             }
         }
         
@@ -20,8 +20,7 @@ pipeline {
                       IS_ERROR =  sh(
                       script: "./cf-test/test.sh",
                       returnStdout: true
-                      ) == 0
-                    
+                      ) == 0  
                   }
                 }
           }
@@ -41,7 +40,7 @@ pipeline {
         stage('send test pass mail')
         {
             when {
-             expression { IS_ERROR == false}
+             expression { IS_ERROR == false }
             }
             steps
             {
@@ -52,7 +51,7 @@ pipeline {
         stage('push to master')
         {
             when {
-             expression { IS_ERROR == false}
+             expression { IS_ERROR == false }
             }
             steps
             {
