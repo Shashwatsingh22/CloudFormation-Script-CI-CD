@@ -7,6 +7,11 @@ pipeline {
         
         stage('cloning the repo') {
             steps {
+                sh 'git name-rev --name-only HEAD > GIT_BRANCH'
+                sh 'cat GIT_BRANCH'
+                git_branch = readFile('GIT_BRANCH').trim()
+                env.GIT_BRANCH = git_branch
+                
                 shell("echo 'clone the repo'")
                 sh 'echo Branch Name: $BRANCH_NAME'
             }
