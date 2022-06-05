@@ -19,7 +19,7 @@ pipeline {
               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   script{
                       IS_ERROR =  sh(
-                      script: "./cf-test/test.sh",
+                      script: "/var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh",
                       returnStdout: true
                       ) == 0  
                   }
@@ -45,7 +45,7 @@ pipeline {
             }
             steps
             {
-                sh ('./cf-test/getDet.sh')
+                sh ('/var/lib/jenkins/workspace/cf-check-teat/cf-test/getDet.sh')
                 sh ("python3 cf-test/sendMail.py no-error-found")
             }
         }
