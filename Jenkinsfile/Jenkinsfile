@@ -19,17 +19,19 @@ pipeline {
               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   timeout(30)
                   {
-                      waitUntil{
+                      waitUntil
+                      {
                           script{
-                      IS_ERROR =  sh(
-                      //script: "/var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh "
-                      script : "aws --endpoint-url=http://localhost:4566 cloudformation deploy --template-file /var/lib/jenkins/workspace/cf-check-teat/cloudFormationTemp.yaml --stack-name test3  &> /var/lib/jenkins/workspace/cf-check-teat/cf-test/error/error.log",
-                      returnStdout: true
-                      ) == 0  
-                  }
+                            IS_ERROR =  sh(
+                            //script: "/var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh "
+                            script : "aws --endpoint-url=http://localhost:4566 cloudformation deploy --template-file /var/lib/jenkins/workspace/cf-check-teat/cloudFormationTemp.yaml --stack-name test3  &> /var/lib/jenkins/workspace/cf-check-teat/cf-test/error/error.log",
+                            returnStdout: true
+                            ) == 0  
+                           }
                       }
                 }
           }
+         }
         }
         
         stage('send error mail')
