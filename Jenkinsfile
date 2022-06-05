@@ -1,4 +1,5 @@
 IS_ERROR=0
+GIT_BRANCH=''
 
 pipeline {
     agent any
@@ -9,8 +10,7 @@ pipeline {
             steps {
                 sh 'git name-rev --name-only HEAD > GIT_BRANCH'
                 sh 'cat GIT_BRANCH'
-                git_branch = readFile('GIT_BRANCH').trim()
-                env.GIT_BRANCH = git_branch
+                GIT_BRANCH = readFile('GIT_BRANCH').trim()
                 
                 shell("echo 'clone the repo'")
                 sh 'echo Branch Name: $BRANCH_NAME'
