@@ -1,6 +1,4 @@
-STATUS=false
 IS_ERROR=0
-
 
 pipeline {
     agent any
