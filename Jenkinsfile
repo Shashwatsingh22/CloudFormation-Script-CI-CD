@@ -8,7 +8,7 @@ pipeline {
         stage('cloning the repo') {
             steps {
                 shell("echo 'clone the repo'")
-                echo env.BRANCH_NAME
+                sh 'echo Branch Name: $BRANCH_NAME'
             }
         }
         
