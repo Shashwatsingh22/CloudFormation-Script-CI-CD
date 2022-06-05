@@ -45,6 +45,7 @@ pipeline {
             }
             steps
             {
+                sh ('./cf-test/getDet.sh')
                 sh ("python3 cf-test/sendMail.py no-error-found")
             }
         }
