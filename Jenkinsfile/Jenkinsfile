@@ -9,12 +9,7 @@ pipeline {
         
         stage('cloning the repo') {
             steps {
-                sh 'git name-rev --name-only HEAD > GIT_BRANCH'
-                sh 'cat GIT_BRANCH'
-                //GIT_BRANCH = readFile('GIT_BRANCH').trim()
-                
-                shell("echo 'clone the repo'")
-                sh 'echo Branch Name: $BRANCH_NAME'
+                shell("git clone -b test-cf https://github.com/Shashwatsingh22/CloudFormation-Script-CI-CD")
             }
         }
         
