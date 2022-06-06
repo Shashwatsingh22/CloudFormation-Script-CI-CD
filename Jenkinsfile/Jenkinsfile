@@ -21,7 +21,7 @@ pipeline {
                          script: "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh", 
                          returnStatus:true) == 0
                   }
-                  
+
               }
              }
         }
@@ -44,7 +44,7 @@ pipeline {
             }
             steps
             {
-                sh 'bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/getDet.sh'
+                //sh 'bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/getDet.sh'
                 sh "python3 cf-test/sendMail.py no-error-found"
             }
         }
