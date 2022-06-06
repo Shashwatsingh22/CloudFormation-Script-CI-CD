@@ -56,7 +56,7 @@ pipeline {
             }
             steps
             {
-                sh "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test-1/getAllStack.sh"
+                sh "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test-1/getAllStacks.sh"
                 echo "push to master"
             }
         }
