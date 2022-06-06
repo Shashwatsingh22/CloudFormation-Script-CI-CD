@@ -21,6 +21,7 @@ pipeline {
                       IS_ERROR = sh "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh"
                   }
                 }
+              echo ${IS_ERROR}
           }
         }
         
