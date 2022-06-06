@@ -21,7 +21,7 @@ pipeline {
                       IS_ERROR =  sh(
                       script: "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh"
                       //script : "aws --endpoint-url=http://localhost:4566 cloudformation deploy --template-file /var/lib/jenkins/workspace/cf-check-teat/cloudFormationTemp.yaml --stack-name test3  &> /var/lib/jenkins/workspace/cf-check-teat/cf-test/error/error.log",
-                      returnStdout: true
+                      returnStatus: true
                       ) == 0  
                   }
                 }
