@@ -24,7 +24,7 @@ pipeline {
         stage('send error mail')
         {
             when {
-             expression { IS_ERROR != 0}
+             expression { IS_ERROR == 0}
             }
             steps
             {
@@ -35,7 +35,7 @@ pipeline {
         stage('send test pass mail')
         {
             when {
-             expression { IS_ERROR == 0 }
+             expression { IS_ERROR != 0 }
             }
             steps
             {
@@ -47,7 +47,7 @@ pipeline {
         stage('push to master')
         {
             when {
-             expression { IS_ERROR == 0 }
+             expression { IS_ERROR != 0 }
             }
             steps
             {
