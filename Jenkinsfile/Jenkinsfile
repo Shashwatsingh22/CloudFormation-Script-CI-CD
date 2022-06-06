@@ -44,7 +44,6 @@ pipeline {
             }
             steps
             {
-                //sh 'bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/getDet.sh'
                 sh "python3 cf-test/sendMail.py no-error-found"
             }
         }
@@ -52,7 +51,7 @@ pipeline {
         stage('push to master')
         {
             when {
-             expression { IS_ERROR == false }
+             expression { IS_ERROR != 0 }
             }
             steps
             {
