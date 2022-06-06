@@ -4,8 +4,6 @@ pipeline {
     agent any
 
     stages {
-        
-        
         stage('cloning the repo') {
             steps {
                 shell("git clone -b test-cf https://github.com/Shashwatsingh22/CloudFormation-Script-CI-CD")
@@ -17,11 +15,10 @@ pipeline {
           steps{
               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   script{
-                     IS_ERROR = sh (
+                     IS_ERROR = sh(
                          script: "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test-1/test.sh", 
                          returnStatus:true) == 0
                   }
-                 
               }
              }
         }
