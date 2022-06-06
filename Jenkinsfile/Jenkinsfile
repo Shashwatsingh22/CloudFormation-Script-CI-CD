@@ -44,6 +44,7 @@ pipeline {
             }
             steps
             {
+                sh "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/getDet.sh"
                 sh "python3 cf-test/sendMail.py no-error-found"
             }
         }

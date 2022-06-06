@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: Configure advanced options for the Amazon EKS Quick Start. (qs-1r0q2rlel)
 Metadata:
 QuickStartDocumentation:
-    EntrypointName: "Configure advanced options"
+  EntrypointName: "Configure advanced options"
     Order: Index d
   ConfigSetName: !Ref ConfigSetName
   LintSpellExclude:
