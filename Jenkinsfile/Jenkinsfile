@@ -18,7 +18,7 @@ pipeline {
           steps{
               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   script{
-                      IS_ERROR =  sh "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh"
+                      IS_ERROR = sh "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh"
                   }
                 }
           }
