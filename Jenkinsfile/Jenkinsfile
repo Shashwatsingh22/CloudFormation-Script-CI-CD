@@ -19,7 +19,7 @@ pipeline {
                   script{
                      IS_ERROR = sh (
                          script: "bash /var/lib/jenkins/workspace/cf-check-teat/cf-test/test.sh", 
-                         returnStatus:true) == 0
+                         returnStatus:true)
                   }
 
               }
