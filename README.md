@@ -17,6 +17,7 @@ Hpw we cam use this ?
 ```
 * Firstly you need to setup the tool through which you would like to validate cf-template (In this scenrio I prefred to use LocalStack).
 * Configure the Jenkins.
+* All the Required Script are inside the utils branch.
 ```
 
 ## Contributing
