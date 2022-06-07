@@ -1,1 +1,1 @@
-aws --endpoint-url=http://localhost:4566 cloudformation deploy --template-file /var/lib/jenkins/workspace/cf-check-teat/cf-temp/cloudFormationTemp.yaml --stack-name sttest500  &> /var/lib/jenkins/workspace/cf-check-teat/cf-test/error/error.log
+aws --endpoint-url=http://localhost:4566 cloudformation deploy --template-file /var/lib/jenkins/workspace/cf-check-teat/cf-temp/cloudFormationTemp.yaml --stack-name sttest501  &> /var/lib/jenkins/workspace/cf-check-teat/cf-test/error/error.log
