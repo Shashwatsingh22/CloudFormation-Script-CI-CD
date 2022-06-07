@@ -1,0 +1,1 @@
+aws --endpoint-url=http://localhost:4566 cloudformation list-stacks  &> /var/lib/jenkins/workspace/cf-check-teat/cf-temp/update.log
