@@ -15,7 +15,7 @@ pipeline {
           steps{
               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   script{
-                     IS_ERROR = sh("bash /var/lib/jenkins/workspace/cf-check-test/cf-test-1/test.sh") == 0
+                     IS_ERROR = sh("bash /var/lib/jenkins/workspace/cf-test/cf-test-1/test.sh") == 0
                   }
               }
              }
@@ -28,7 +28,7 @@ pipeline {
             }
             steps
             {
-                sh "python3 cf-test/sendMail.py error-found"
+                sh "python3 mail-script/sendMail.py error-found"
             }
         }
         
@@ -39,8 +39,8 @@ pipeline {
             }
             steps
             {
-                sh "bash /var/lib/jenkins/workspace/cf-check-test/cf-test-1/getDet.sh"
-                sh "python3 cf-test/sendMail.py no-error-found"
+                sh "bash /var/lib/jenkins/workspace/cf-test/cf-test-1/getDet.sh"
+                sh "python3 mail-script/sendMail.py no-error-found"
             }
         }
         
@@ -51,7 +51,7 @@ pipeline {
             }
             steps
             {
-                sh "bash /var/lib/jenkins/workspace/cf-check-test/cf-test-1/getAllStacks.sh"
+                sh "bash /var/lib/jenkins/workspace/cf-test/cf-test-1/getAllStacks.sh"
                 echo "push to master"
             }
         }
